@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Girlfriend's Day ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#ff9ec4,#ffd6e7);
+    overflow-x:hidden;
+    text-align:center;
+    color:white;
+}
+
+.container{
+    padding:60px 20px;
+}
+
+h1{
+    font-size:55px;
+}
+
+h2{
+    margin-top:20px;
+}
+
+p{
+    margin:20px auto;
+    max-width:700px;
+    line-height:1.7;
+    font-size:20px;
+}
+
+button{
+    padding:15px 35px;
+    margin:15px;
+    border:none;
+    border-radius:40px;
+    background:white;
+    color:#ff2d75;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.08);
+}
+
+.card{
+    width:90%;
+    max-width:700px;
+    margin:40px auto;
+    padding:30px;
+    border-radius:20px;
+    background:rgba(255,255,255,.2);
+    backdrop-filter:blur(10px);
+}
+
+#reason{
+    font-size:25px;
+    margin-top:20px;
+}
+
+#surprise{
+    display:none;
+    font-size:30px;
+    margin-top:25px;
+}
+
+.heart{
+    position:fixed;
+    top:-20px;
+    color:white;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    to{
+        transform:translateY(110vh);
+    }
+}
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>Happy Girlfriend's Day ❤️</h1>
+
+<h2>Dear My Love 💕</h2>
+
+<div class="card">
+
+<p>
+Thank you for being the brightest part of my life bakudii.
+Every smile, every laugh, and every moment with you
+becomes one of my favorite kuchii puchiii.
+
+You inspire me to be a better person every single day.
+No matter where life takes us, I hope we continue making
+beautiful memories together.
+
+Happy Girlfriend's Day ❤️
+</p>
+
+</div>
+
+<div class="card">
+
+<h2>One More Reason I Love You</h2>
+
+<p id="reason">Click the button ❤️</p>
+
+<button onclick="newReason()">Show Reason</button>
+
+</div>
+
+<div class="card">
+
+<h2>We've Been Together For</h2>
+
+<h1 id="days">Loading...</h1>
+
+</div>
+
+<div class="card">
+
+<button onclick="surprise()">Open Surprise 🎁</button>
+
+<h2 id="surprise">
+I Love You More Than Words Can Say ❤️🌹
+</h2>
+
+</div>
+
+</div>
+
+<script>
+
+// CHANGE THIS DATE
+const startDate = new Date("2025-01-15");
+
+function updateDays(){
+    const today = new Date();
+    const diff = today-startDate;
+    const days = Math.floor(diff/(1000*60*60*24));
+
+    document.getElementById("days").innerHTML =
+        days + " Days ❤️";
+}
+
+updateDays();
+
+const reasons=[
+"Your smile makes my whole day better 😊",
+"You always believe in me ❤️",
+"I love your kindness 🌹",
+"You make ordinary days unforgettable ✨",
+"You make me laugh every single day 😂",
+"Life feels complete with you 💕",
+"You are my favorite person ❤️",
+"I'm grateful for every moment with you 💖",
+"Your hugs feel like home 🤍",
+"You're amazing just the way you are 💝"
+];
+
+function newReason(){
+    let random=Math.floor(Math.random()*reasons.length);
+    document.getElementById("reason").innerHTML=reasons[random];
+}
+
+function surprise(){
+    document.getElementById("surprise").style.display="block";
+}
+
+function createHeart(){
+
+    const heart=document.createElement("div");
+
+    heart.className="heart";
+
+    heart.innerHTML="❤️";
+
+    heart.style.left=Math.random()*100+"vw";
+
+    heart.style.fontSize=(20+Math.random()*30)+"px";
+
+    heart.style.animationDuration=(3+Math.random()*5)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },8000);
+
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
